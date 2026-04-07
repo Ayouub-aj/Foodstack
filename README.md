@@ -63,7 +63,7 @@ Below is the **Conceptual Data Model (MCD)** representing our data architecture,
 ## 📁 Project Structure (MVC)
 
 ```
-marrakech-app/
+foodstack/
 ├── app/
 │   ├── Controllers/       
 │   │   ├── AuthController.php    # (US1, US2: Login/Register)
@@ -87,6 +87,9 @@ marrakech-app/
 │   ├── css/
 │   │   └── style.css
 │   └── index.php                 # Front controller (Entry Point)
+├── includes/                
+│   ├── jira.png
+│   └── mcd_merise.png                 
 ├── config/
 │   └── config.php                # DB credentials & constants
 └── database/
