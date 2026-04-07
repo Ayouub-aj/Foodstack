@@ -289,7 +289,7 @@ marrakech-app/
 │   │   │   ├── login.php
 │   │   │   └── register.php
 │   │   ├── recipes/
-│   │   │   ├── index.php        
+│   │   │   ├── recipes.php        
 │   │   │   ├── create.php       
 │   │   │   └── edit.php         
 │   │   ├── header.php       
