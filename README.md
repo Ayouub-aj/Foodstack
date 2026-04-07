@@ -1,224 +1,138 @@
-# 🍽️ Marrakech Food Lovers — Recipe Sharing Platform
+# 🍽️ Foodstack — Recipe Sharing Platform
 
-> A full-stack web platform for cooking enthusiasts to share, organize, and discover their favorite recipes — so no delicious creation ever gets lost in paper notebooks or phone photos again.
-
----
-
-## 🛠️ Tech Stack
-
-| Layer       | Technology                        |
-|-------------|-----------------------------------|
-| Backend     | PHP 8+ (MVC Architecture)         |
-| Database    | MySQL                             |
-| DB Access   | PDO + Prepared Statements         |
-| Auth        | PHP Sessions + `password_hash()`  |
-| Frontend    | HTML5 / CSS3                      |
-| Methodology | Kanban + Merise (MCD/MLD)         |
+> **Welcome to Foodstack**, a project executed by the **DigitalBite Agency** to centralize culinary creations in a single, secure, and professional platform.
 
 ---
 
-## ✨ Features
+## 🏢 Project Context
 
-- 🔐 **Secure Authentication** — Register/Login with hashed passwords (US1 & US2)
-- 📋 **My Recipes Dashboard** — View all your recipes with title, prep time, and creation date (US3)
-- ✍️ **Recipe Management** — Create, edit, delete your recipes with full details (US4, US5, US6)
-- 🏷️ **Categories** — Organize recipes by Starters, Main Courses, Desserts, Drinks (US7)
-- 🔍 **Smart Filtering** — Browse recipes by category (US8)
-- 🛡️ **Zero SQL Injection** — All queries use Prepared Statements
-- 🔒 **Ownership Protection** — Users can only modify/delete their own recipes
+The **DigitalBite Agency** specializes in creating applications for the culinary industry. Our client, **Marrakech Food Lovers**, needs to solve a growing problem: beloved recipes are currently scattered across paper notebooks, phone photos, and disorganized Word files, making sharing and access within the community almost impossible.
 
----
+### ⚠️ The Problem
+- **Fragmentation**: Recipes are stored in various non-standard formats.
+- **Inaccessibility**: Hard to find and search for a specific dish.
+- **No Community**: No way to share and organize recipes among enthusiasts.
 
-## 🗄️ Database Schema
-users
-├── id (PK)
-├── username
-├── email
-├── password
-└── created_at
-
-categories
-├── id (PK)
-└── name
-
-recipes
-├── id (PK)
-├── user_id (FK → users.id)
-├── category_id (FK → categories.id)
-├── title
-├── ingredients
-├── instructions
-├── prep_time
-├── cook_time
-├── servings
-└── created_at
-
-text
-
+### 🚀 The Solution
+A centralized, professional web platform built with a robust **MVC (Model-View-Controller)** architecture to ensure data integrity and ease of use.
 
 ---
 
-## 📊 Entity-Relationship Diagram (MCD/MLD)
+## 👨‍💻 Backend Developer Role & Architecture
 
-### Conceptual Data Model (MCD)
-
-![MCD Diagram](/database/diagrams/mcd.png)
-
-### Logical Data Model (MLD)
-
-![MLD Diagram](/database/diagrams/mld.png)
-
-> *Diagrams created using draw.io / hand-drawn and photographed*
-
-### Tables & Relationships
-
-- **users** — stores user accounts with hashed passwords
-
-- **categories** — lookup table for recipe types (Starters, Main Courses, Desserts, Drinks)
-
-- **recipes** — core table with `user_id` and `category_id` as Foreign Keys
-
-#### Relationships (Crow's Foot Notation)
-
-- `users → recipes` : One user can create zero or many recipes (||--o{)
-
-- `categories → recipes` : One category can contain zero or many recipes (||--o{)
-
-> 💡 These FK relationships power our JOIN queries to display human-readable usernames and category names instead of raw IDs!
+Our role as Backend Developers focuses on high-standard software engineering:
+- **Architecting the MVC Flow**: Complete isolation of responsibilities. Orchestrating data without compromise between the Model and the View via the Controller.
+- **OOP Encapsulation**: Shielding data access with `private` properties and standardizing interaction through public `Getters/Setters`.
+- **SQL Data Engineering**: High-fidelity modelling of **1-N relationships** (Users to Recipes, Categories to Recipes) with full referential integrity.
+- **Operational Agility**: We use the **Kanban methodology** via **Jira** to track progress and sync during **Daily Standups**.
+- **Merise Method**: Structural analysis using **MCD** (Conceptual Data Model) and **MLD** (Logical Data Model) before starting the development phase.
 
 ---
 
-## 📊 Jira Board
+## 📋 User Stories (Business Needs)
 
-![Jira Board](/includes/img/jira-board.png)
-
-> *Kanban board with columns: Backlog | In Progress | In Review | Done*
+| ID | User Story | Description |
+|:---|:---|:---|
+| **US1** | **User Registration** | As a visitor, I want to create an account to manage my recipes. |
+| **US2** | **User Login** | As a registered user, I want to log in to access my personal space. |
+| **US3** | **Show My Recipes** | As a logged-in user, I want to see my recipes (title, prep time, date). |
+| **US4** | **Create Recipe** | As a logged-in user, I want to add new recipes with full details. |
+| **US5** | **Edit Recipe** | As a logged-in user, I want to modify my existing recipes. |
+| **US6** | **Delete Recipe** | As a logged-in user, I want to delete my own recipes. |
+| **US7** | **Recipe Categories** | As a user, I want to organize recipes by Starters, Main, Desserts, and Drinks. |
+| **US8** | **Filter by Category** | As a user, I want to browse my recipes by their specific category. |
+| **Bonus** | **[Selection]** | Includes one extension (Search, Favorites, Total Time, or Ratings). |
 
 ---
 
-## 🚀 Installation
+## 📐 Structural Analysis (Merise)
 
-### Prerequisites
+Below is the **Conceptual Data Model (MCD)** representing our data architecture, associations, and cardinalities.
 
-- PHP 8+ with PDO extension enabled
-- MySQL 5.7+ or MariaDB
-- A local server (XAMPP, Laragon, WAMP, or similar)
+![MCD Diagram](app/includes/mcd_merise.png)
 
-### Steps
+---
 
-1. **Clone the repository**
+## 📊 Jira Board (Agile Tracking Kanban framework)
 
-```bash
-git clone https://github.com/your-username/marrakech-food-lovers.git
-cd marrakech-food-lovers
-Import the database
+![Jira Board Screenshot](app/includes/jira.png)
+> *Progress is tracked using 4 columns: Backlog, In Progress, In Review, and Done.*
+
+---
+
+## 📁 Project Structure (MVC)
+
 ```
-
-
-Open phpMyAdmin (or your MySQL client)
-Create a new database: marrakech_food_lovers
-Import the files:
-database/schema.sql (table structure)
-database/seed.sql (sample data: 3 users, 10 recipes, 4 categories)
-Configure the connection
-
-Open config/config.php
-Update with your local credentials:
-PHP
-
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'marrakech_food_lovers');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-Run the project
-Place the folder in your server's htdocs or www directory
-
-Visit: http://localhost/marrakech-food-lovers/public
-
-# 📁 Project Structure (MVC)
-
-
-marrakech-food-lovers/
+marrakech-app/
 ├── app/
-│   ├── Controllers/           # Request handling & business logic orchestration
-│   │   ├── AuthController.php     # Login, Register, Logout actions
-│   │   └── RecipeController.php   # CRUD operations for recipes
-│   ├── Models/                # Data access & business rules (OOP encapsulation)
-│   │   ├── User.php               # User entity — private props & getters/setters
-│   │   ├── Recipe.php             # Recipe entity — CRUD methods
-│   │   └── Category.php           # Category entity — getAll()
-│   ├── Views/                 # Presentation layer (HTML + PHP templating)
+│   ├── Controllers/       
+│   │   ├── AuthController.php    # (US1, US2: Login/Register)
+│   │   └── RecipeController.php  # (US3-US8: CRUD & Filtering)
+│   ├── Models/            
+│   │   ├── User.php              # (Encapsulation: private props & getters/setters)
+│   │   ├── Recipe.php            # (SQL: JOINs with Categories)
+│   │   └── Category.php          # (SQL: Get all categories)
+│   ├── Views/             
 │   │   ├── auth/
 │   │   │   ├── login.php
 │   │   │   └── register.php
 │   │   ├── recipes/
-│   │   │   ├── index.php          # Recipe list with filtering
-│   │   │   ├── create.php         # New recipe form
-│   │   │   └── edit.php           # Edit recipe form
-│   │   ├── header.php             # Global navigation
-│   │   └── footer.php
-│   └── Database.php           # PDO connection class
-├── public/                    # Web root (single entry point)
+│   │   │   ├── recipes.php       # (Show My Recipes list)
+│   │   │   ├── create.php        # (Add recipe form)
+│   │   │   └── edit.php          # (Edit recipe form)
+│   │   ├── header.php            # (Navigation bar)
+│   │   └── footer.php            # (Copyright/Scripts)
+│   └── Database.php              # Simple PDO connection class
+├── public/                
 │   ├── css/
 │   │   └── style.css
-│   └── index.php              # Front controller
+│   └── index.php                 # Front controller (Entry Point)
 ├── config/
-│   └── config.php             # DB credentials & constants
-├── database/
-│   ├── schema.sql             # Table creation script
-│   ├── seed.sql               # Sample data (3 users, 10 recipes, 4 categories)
-│   └── diagrams/              # MCD & MLD images
-├── includes/
-│   └── img/                   # Screenshots & assets
-└── README.md
+│   └── config.php                # DB credentials & constants
+└── database/
+    ├── schema.sql                # Table creation script (FK constraints)
+    └── seed.sql                  # Sample data (Users, Recipes, Categories)
+```
 
-# 🔒 Security Highlights
-Feature	Implementation
-Password Storage	password_hash() with PASSWORD_BCRYPT
-Password Verification	password_verify() on login
-SQL Injection Prevention	PDO Prepared Statements on ALL queries
-Form Validation	Server-side validation on all inputs
-Access Control	Session-based route protection
-Ownership Verification	Users can only edit/delete their own recipes
-XSS Prevention	htmlspecialchars() on output
+---
 
-# 🏆 Bonus Feature
-Choose ONE per pair:
+## 🚀 Installation & Setup
 
- Recipe Search — Search bar filtering by title or ingredients
- Favorite Recipes — Mark recipes as favorites with dedicated view
- Automatic Total Time — Calculate prep + cook time, show "Quick Recipe" badge (<30 min)
- Ratings — Rate recipes 1-5 stars with average display
-🖼️ Screenshots
-Screen	Preview
-Login	Login
-Register	Register
-My Recipes	Dashboard
-Create Recipe	Create
-Edit Recipe	Edit
-Filter by Category	Filter
-📋 User Stories
-ID	Story	Status
-US1	As a visitor, I want to create an account to manage my recipes	⏳
-US2	As a registered user, I want to log in to access my personal space	⏳
-US3	As a logged-in user, I want to see all my recipes with title, prep time, date	⏳
-US4	As a logged-in user, I want to add a new recipe with all details	⏳
-US5	As a logged-in user, I want to modify my existing recipes	⏳
-US6	As a logged-in user, I want to delete a recipe I created	⏳
-US7	As a user, I want to organize recipes by categories	⏳
-US8	As a user, I want to filter recipes by category	⏳
-👥 Team
-Member	Role	GitHub
-[Name 1]	Backend Developer	@username1
-[Name 2]	Backend Developer	@username2
-📚 Project Context
-Info	Details
-Agency	DigitalBite Agency
-Client	Marrakech Food Lovers
-Duration	5 days (04/06/2026 – 04/10/2026)
-Mode	Pair Programming
-Methodology	Kanban + MVC + Merise
-📜 License
-This project was built as part of a Full-Stack PHP/MySQL training program at DigitalBite Agency.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Ayouub-aj/Foodstack.git
+   ```
+2. **Database Import**:
+   - Create a database named `foodstack`.
+   - Import `database/schema.sql` to create tables and constraints.
+   - Import `database/seed.sql` to populate sample data.
+3. **Configuration**:
+   - Open `config/config.php`.
+   - Update your local credentials (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`).
+4. **Run the application**:
+   - Point your local server (XAMPP/Laragon) to the `public/` folder.
+   - Access via: `http://localhost:8080/projectPHP/Foodstack/public`.
 
-Built with ❤️ and 🍲 by the Marrakech Food Lovers team
+---
+
+## 🛡️ Performance & Security Criteria
+
+- **Zero SQL Injection**: 100% of queries use **PDO Prepared Statements**.
+- **Secure Auth**: Passwords are saved using `password_hash()` (BCRYPT) and verified via `password_verify()`.
+- **MVC Integrity**: No SQL queries allowed in Views; business logic is restricted to Models.
+- **XSS Prevention**: Clean output using `htmlspecialchars()` on all dynamic content.
+
+---
+
+## 👥 Pair Programming Partners
+
+| Member | GitHub |
+|:---|:---|
+| **[Name 1]** | [@ayouub_aj] |
+| **[Name 2]** | [@younesbarrag] |
+
+---
+
+## ⚠️ DigitalBite Agency Golden Rule
+---
+*Last updated: 04/07/2026*
