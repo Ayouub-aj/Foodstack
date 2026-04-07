@@ -65,36 +65,40 @@ Below is the **Conceptual Data Model (MCD)** representing our data architecture,
 ```
 foodstack/
 ├── app/
-│   ├── Controllers/       
-│   │   ├── AuthController.php    # (US1, US2: Login/Register)
-│   │   └── RecipeController.php  # (US3-US8: CRUD & Filtering)
-│   ├── Models/            
-│   │   ├── User.php              # (Encapsulation: private props & getters/setters)
-│   │   ├── Recipe.php            # (SQL: JOINs with Categories)
-│   │   └── Category.php          # (SQL: Get all categories)
 │   ├── Views/             
 │   │   ├── auth/
 │   │   │   ├── login.php
-│   │   │   └── register.php
-│   │   ├── recipes/
-│   │   │   ├── recipes.php       # (Show My Recipes list)
-│   │   │   ├── create.php        # (Add recipe form)
-│   │   │   └── edit.php          # (Edit recipe form)
-│   │   ├── header.php            # (Navigation bar)
-│   │   └── footer.php            # (Copyright/Scripts)
-│   └── Database.php              # Simple PDO connection class
-├── public/                
-│   ├── css/
-│   │   └── style.css
-│   └── index.php                 # Front controller (Entry Point)
-├── includes/                
-│   ├── jira.png
-│   └── mcd_merise.png                 
-├── config/
-│   └── config.php                # DB credentials & constants
-└── database/
-    ├── schema.sql                # Table creation script (FK constraints)
-    └── seed.sql                  # Sample data (Users, Recipes, Categories)
+│   │   │   └── registre.php
+│   │   ├── database.php
+│   │   ├── footer.php
+│   │   ├── header.php
+│   │   └── recipes.php/
+│   │       ├── create.php       
+│   │       ├── edit.php         
+│   │       └── recipes.php       
+│   ├── config/
+│   │   └── config.php               
+│   ├── controllers/
+│   │   ├── authcontroller.php    
+│   │   └── recipecontroller.php  
+│   ├── database/
+│   │   ├── seed.sql
+│   │   └── shema.sql
+│   ├── includes/
+│   │   ├── MCD.svg
+│   │   ├── jira.png
+│   │   └── mcd_merise.png
+│   ├── models/
+│   │   ├── Category.php
+│   │   ├── Recipe.php
+│   │   └── user.php
+│   └── public/
+│       ├── index.php                
+│       └── main.css
+├── mvc_builder.sh
+├── README.md
+├── taskboard.md
+└── LICENSE
 ```
 
 ---
@@ -107,14 +111,14 @@ foodstack/
    ```
 2. **Database Import**:
    - Create a database named `foodstack`.
-   - Import `database/schema.sql` to create tables and constraints.
-   - Import `database/seed.sql` to populate sample data.
+   - Import `app/database/shema.sql` to create tables and constraints.
+   - Import `app/database/seed.sql` to populate sample data.
 3. **Configuration**:
-   - Open `config/config.php`.
+   - Open `app/config/config.php`.
    - Update your local credentials (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`).
 4. **Run the application**:
-   - Point your local server (XAMPP/Laragon) to the `public/` folder.
-   - Access via: `http://localhost:8080/projectPHP/Foodstack/public`.
+   - Point your local server (XAMPP/Laragon) to the `app/public/` folder.
+   - Access via: `http://localhost:8080/projectPHP/Foodstack/app/public`.
 
 ---
 
