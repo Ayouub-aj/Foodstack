@@ -1,0 +1,173 @@
+ @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #993a22ff 0%, #d9b89fff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header h2 { font-size: 32px; font-weight: 600; letter-spacing: 1px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; margin-bottom: 8px; font-weight: 400; opacity: 0.9; }
+        .input-group input {
+            width: 100%;
+            padding: 14px 15px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input::placeholder { color: rgba(255, 255, 255, 0.6); }
+        .input-group input:focus { 
+            background: rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+            transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #ff5e62;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 10px 20px rgba(255, 94, 98, 0.3);
+        }
+
+        .btn-submit:hover { 
+            background: #ff4a4e; 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 25px rgba(255, 94, 98, 0.4);
+        }
+
+        .redirect-link { text-align: center; margin-top: 25px; font-size: 14px; opacity: 0.9; }
+        .redirect-link a { color: #fff; font-weight: 600; text-decoration: none; position: relative; }
+        .redirect-link a::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px;
+            bottom: -2px; left: 0; background-color: #fff; transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .redirect-link a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        .alert { padding: 12px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-size: 14px; }
+        .alert.error { background: rgba(255, 59, 48, 0.2); border: 1px solid rgba(255, 59, 48, 0.3); }
+        .alert.success { background: rgba(52, 199, 89, 0.2); border: 1px solid rgba(52, 199, 89, 0.3); }
+
+          @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #993a22ff 0%, #d9b89fff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header h2 { font-size: 32px; font-weight: 600; letter-spacing: 1px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; margin-bottom: 8px; font-weight: 400; opacity: 0.9; }
+        .input-group input {
+            width: 100%;
+            padding: 14px 15px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input::placeholder { color: rgba(255, 255, 255, 0.6); }
+        .input-group input:focus { 
+            background: rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+            transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #00c6ff;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 10px 20px rgba(0, 198, 255, 0.3);
+        }
+
+        .btn-submit:hover { 
+            background: #0082c8; 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 25px rgba(0, 198, 255, 0.4);
+        }
+
+        .redirect-link { text-align: center; margin-top: 25px; font-size: 14px; opacity: 0.9; }
+        .redirect-link a { color: #fff; font-weight: 600; text-decoration: none; position: relative; }
+        .redirect-link a::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px;
+            bottom: -2px; left: 0; background-color: #fff; transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .redirect-link a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
