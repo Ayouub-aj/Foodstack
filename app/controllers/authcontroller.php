@@ -1,53 +1,39 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+if (session_status() === PHP_SESSION_NONE) session_start();
 
-class authcontroller {
-    private $userModel;
-
+class authController {
+    private $md;
     public function __construct() {
         require_once dirname(__DIR__) . '/models/user.php';
-        $this->userModel = new User();
+        $this->md = new User();
     }
 
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = htmlspecialchars($_POST['username']);
-            $email = htmlspecialchars($_POST['email']);
-            $password = $_POST['password'];
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            if ($this->userModel->createUser($username, $email, $hashedPassword)) {
-                header('Location: login.php?success=account_created');
-                exit();
-            } else {
-                echo "Error during registration.";
-            }
+            $u = htmlspecialchars($_POST['username']);
+            $e = htmlspecialchars($_POST['email']);
+            $p = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            if ($this->md->createUser($u, $e, $p)) { header('Location: login.php?success=account_created'); exit(); }
         }
     }
 
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = htmlspecialchars($_POST['email']);
-            $password = $_POST['password'];
-            $user = $this->userModel->getUserByEmail($email);
-
-            if ($user && password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                header('Location: ../recipes/index.php');
-                exit();
-            } else {
-                header('Location: login.php?error=invalid_credentials');
-                exit();
+            $e = htmlspecialchars($_POST['email']);
+            $p = $_POST['password'];
+            $u = $this->md->getUserByEmail($e);
+            if ($u && password_verify($p, $u['password'])) {
+                $_SESSION['user_id'] = $u['id'];
+                $_SESSION['username'] = $u['username'];
+                header('Location: ../recipes/index.php'); exit();
             }
+            header('Location: login.php?error=invalid_credentials'); exit();
         }
     }
 
     public function logout() {
         session_destroy();
-        header('Location: ../auth/login.php');
-        exit();
+        header('Location: ../auth/login.php'); exit();
     }
 }
+?>
