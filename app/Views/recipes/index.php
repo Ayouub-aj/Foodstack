@@ -321,7 +321,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['id'])) 
             </div>
         <?php endif; ?>
 
-        <div class="recipes-grid">
+        <div class="recipe-grid">
             <?php if (!empty($recipes)): ?>
                 <?php foreach ($recipes as $recipe): ?>
                     <div class="recipe-card">

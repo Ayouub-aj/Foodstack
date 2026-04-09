@@ -51,6 +51,7 @@ class RecipeController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'id' => $id,
+                'user_id' => $_SESSION['user_id'],
                 'category_id' => $_POST['category_id'],
                 'title' => htmlspecialchars($_POST['title']),
                 'temp_de_production' => htmlspecialchars($_POST['temp_de_production']),
