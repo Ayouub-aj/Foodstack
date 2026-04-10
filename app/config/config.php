@@ -12,7 +12,6 @@ class DataB{
         try{
         $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->pass);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       
         }
         catch(PDOException $e){
             die("Error: " . $e->getMessage());
