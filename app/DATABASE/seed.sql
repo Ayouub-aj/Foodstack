@@ -5,11 +5,11 @@ TRUNCATE TABLE categories;
 TRUNCATE TABLE users;
 SET FOREIGN_KEY_CHECKS = 1;
 
--- 👤 Seed Users (Password: password)
+-- 👤 Seed Users (Password: [PASSWORD])
 INSERT INTO users (username, email, password_hash) VALUES 
-('Ayoub_Admin', 'admin@foodstack.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
-('Chef_Younes', 'chef@foodstack.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
-('Foodie_Alice', 'alice@foodstack.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('admin', 'admin@foodstack.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
+('chef', 'chef@foodstack.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
+('foodie', 'foodie@foodstack.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
 
 -- 🏷️ Seed Categories
 INSERT INTO categories (name, description) VALUES 
