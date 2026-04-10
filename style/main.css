@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;700;900&display=swap');
+
+:root {
+    --primary-color: #A31F59;      /* Boiron Magenta */
+    --primary-light: #F3E9ED;      /* Soft Lavender BG */
+    --dark-magenta: #702043;
+    --dark-color: #1a1a1a;
+    --text-muted: #64748b;
+    --bg-light: #f9f9f9;
+    --surface: #ffffff;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.08);
+    --radius-lg: 30px;             /* Boiron Style Large Radius */
+    --radius-md: 12px;
+    --container-max: 1440px;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+main {
+    flex: 1;
+}
+
+.container-wide {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--dark-magenta);
+}
+
+.fw-900 { font-weight: 900; }
+.fw-500 { font-weight: 500; }
+.letter-spacing-tight { letter-spacing: -0.01em; }
+
+/* Navbar */
+.navbar {
+    padding: 1.5rem 0;
+    background: #fff !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -2px;
+    color: var(--dark-color) !important;
+}
+
+.navbar-brand .text-success {
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--dark-color) !important;
+    padding: 0.5rem 1.5rem !important;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Sidebar Layout */
+.filter-sidebar {
+    background: var(--primary-light);
+    padding: 40px 30px;
+    border-radius: var(--radius-lg);
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* Form Styling */
+.form-label {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.search-input, .select-input {
+    border: 1px solid var(--primary-color) !important;
+    border-radius: 8px !important;
+    padding: 12px 15px !important;
+    background: #fff !important;
+    font-weight: 500;
+}
+
+/* Recipe Cards - Boiron Grid Style */
+.recipe-card {
+    border: none;
+    border-radius: var(--radius-lg);
+    background: #fff;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    position: relative;
+    box-shadow: var(--card-shadow);
+}
+
+.card-img-wrapper {
+    position: relative;
+    padding-top: 120%; /* Taller cards like Boiron */
+    background-color: #cbd5e1;
+    overflow: hidden;
+}
+
+.card-img-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay-content {
+    position: absolute;
+    top: 40px; /* Text overlay at the top */
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 20px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.card-overlay-content h4 {
+    color: #fff !important;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.card-overlay-content p {
+    font-weight: 500;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.card-img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+}
+
+/* Buttons */
+.btn-primary, .btn-dark {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-weight: 700;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-dark:hover {
+    background: var(--dark-magenta);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: 40px;
+    }
+}
