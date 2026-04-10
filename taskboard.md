@@ -62,7 +62,7 @@
 | [ ] | Write SQL to create `categories` table (`id`, `name`) | 🔴 High | 10 min |
 | [ ] | Write SQL to create `recipes` table (`id`, `user_id` FK, `category_id` FK, `title`, `ingredients`, `instructions`, `prep_time`, `cook_time`, `servings`, `created_at`) | 🔴 High | 20 min |
 | [ ] | Add all Foreign Key constraints with `ON DELETE CASCADE` where appropriate | 🔴 High | 10 min |
-| [ ] | Write seed data: 3 users, 4 categories, 10 recipes | 🟡 Medium | 25 min |
+| [x] | Write seed data: 3 users, 4 categories, 10 recipes | 🟡 Medium | 25 min |
 | [ ] | Export full SQL schema as `database/schema.sql` and seeds as `database/seed.sql` | 🔴 High | 10 min |
 | [ ] | Test all JOINs manually in phpMyAdmin before writing any PHP | 🔴 High | 15 min |
 | [ ] | **Commit:** `"feat(db): complete schema with users, recipes, categories tables and seeds"` | 🔴 High | 5 min |

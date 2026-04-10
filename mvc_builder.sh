@@ -27,7 +27,7 @@ touch app/Views/header.php
 
 # --- 4. CONFIG & STORAGE (Nested) ---
 touch app/config/config.php           
-touch app/database/shema.sql   
+touch app/database/schema.sql   
 touch app/database/seed.sql       
 
 # --- 5. THE DINING ROOM (Public Face) ---
